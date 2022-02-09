@@ -17,6 +17,16 @@
 			<th>조회수</th>
 			<th>날짜</th>		
 		</tr>
+		<c:forEach var="row" items="${list}">
+			<tr>
+				<td>${row.no}</td>
+				<td>${row.title}</td>
+				<td>${row.contents}</td>
+				<td>${row.regUser}</td>
+				<td>${row.readCount}</td>
+				<td>${row.regDate}</td>
+			</tr>
+		</c:forEach>
 	</table>
 </body>
 </html>
