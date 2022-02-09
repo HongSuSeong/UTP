@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.main.one.dao.BoardDao">
-	<select id="getBoardList" resultType="map">
-	SELECT * FROM TB_BOARD
+	<select id="getBoardList" resultType="boardVO">
+	SELECT NO, 
+		   TITLE,
+		   CONTENTS,
+		   REG_USER,
+		   TO_CHAR(REG_DATE,'YY-MM-DD') AS REG_DATE,
+		   READCOUNT
+	FROM TB_BOARD
 	</select>
 	
-	<insert id="newWrite" parameterType="boardVO">
+	<select id="getBoardDetail" parameterType="String" resultType="boardVO">
+	SELECT NO, 
+		   TITLE,
+		   CONTENTS,
+		   REG_USER,
+		   TO_CHAR(REG_DATE,'YY-MM-DD') AS REG_DATE,
+		   READCOUNT
+	FROM TB_BOARD
+	WHERE NO = #{no}
+	</select>
+	
+	<insert id="NewWriteSave" parameterType="boardVO">
 	INSERT INTO TB_BOARD
 	(
 	NO,

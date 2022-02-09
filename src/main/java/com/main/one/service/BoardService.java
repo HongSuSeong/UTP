@@ -1,7 +1,6 @@
 package com.main.one.service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +13,16 @@ public class BoardService {
 	
 	@Autowired BoardDao boardDao;
 
-	public ArrayList<HashMap<String,Object>> getBoardList(HashMap<String,Object> map) {
-		return boardDao.getBoardList(map);
+	public ArrayList<boardVO> getBoardList() {
+		return boardDao.getBoardList();
 	}
 
-	public void newWrite(boardVO board) {
-		boardDao.newWrite(board);
+	public ArrayList<boardVO> getBoardDetail(String no) {
+		return boardDao.getBoardDetail(no);
+	}
+	
+	public void newWriteSave(boardVO boardVO) {
+		boardDao.newWriteSave(boardVO);
 	}
 
 }

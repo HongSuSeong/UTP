@@ -11,6 +11,7 @@ public class boardVO {
 	String regUser;
 	String regDate;
 	int readCount;
+	
 	public String getNo() {
 		return no;
 	}
